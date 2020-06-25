@@ -262,7 +262,7 @@
 </tbody></table>
 <p>课程表的逻辑设计：<br>| 列名      | 类型       | 长度 | 主码/外码 | 允许空值 | 说明    |<br>|———|———-|—-|——-|——|——-|<br>| Cno     | char     | 4  | 主码    | 非空   | 课程号   |<br>| Cname   | char     | 40 |       | 非空   | 课程名   |<br>| Cpno    | char     | 4  |       | 空    | 先修课程号 |<br>| Ccredit | smallint |    |       | 空    | 学分    |</p>
 <p>选课表的逻辑设计：<br>| 列名    | 类型       | 长度 | 主码/外码             | 允许空值 | 说明  |<br>|——-|———-|—-|——————-|——|—–|<br>| Sno   | char     | 9  | 外码(参照学生表中的sno列) | 非空   | 学号  |<br>| Cno   | char     | 4  | 外码(参照课程表中的cno列) | 非空   | 课程号 |<br>| Grade | smallint |    |                   | 空    | 成绩  |</p>
-<p>说明：选课表的主码是(Sno, Cno)</p>
+<p><strong>说明：选课表的主码是(Sno, Cno)</strong></p>
 <p><img src="https://img-blog.csdnimg.cn/20200625102238967.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTcxMzk4NA==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
 <p> <img src="https://img-blog.csdnimg.cn/20200625102333409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTcxMzk4NA==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
 <p><img src="https://img-blog.csdnimg.cn/20200625102340716.png" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
