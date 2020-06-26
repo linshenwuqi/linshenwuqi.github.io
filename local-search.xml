@@ -69,30 +69,11 @@
   
   
   <entry>
-    <title>我的第一个博客</title>
-    <link href="/2020/06/16/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/"/>
-    <url>/2020/06/16/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/</url>
-    
-    <content type="html"><![CDATA[<p>此博客仅用来进行测试文档</p>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>first</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>My first blog</title>
     <link href="/2020/06/15/My%20first%20blog/"/>
     <url>/2020/06/15/My%20first%20blog/</url>
     
-    <content type="html"><![CDATA[<p>你好世界！</p>]]></content>
+    <content type="html"><![CDATA[<p>此文档仅用来进行测试！</p>]]></content>
     
     
     
