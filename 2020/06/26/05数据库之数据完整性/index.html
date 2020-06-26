@@ -17,7 +17,7 @@
   <meta name="description" content="记录学习中的点滴">
   <meta name="author" content="JiaWei Sun">
   <meta name="keywords" content="">
-  <title>我的第一个博客 - 林深雾起的博客</title>
+  <title>05数据库之数据完整性 - 林深雾起的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -152,8 +152,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-06-16 08:55">
-      2020年6月16日 早上
+    <time datetime="2020-06-26 17:44">
+      2020年6月26日 下午
     </time>
   </div>
 
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      12 字
+      701 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      8
        分钟
     </span>
   
@@ -204,20 +204,61 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <p>此博客仅用来进行测试文档</p>
+              <p>（1）创建一个名为“Test_Integrity_姓名首字母缩写”的数据库。<br> <img src="https://img-blog.csdnimg.cn/20200626094736431.jpg" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>（2）用命令方式在数据库中创建student表,course表和sc表，注意其中的约束按如下方式进行定义：ssex字段定义为表级约束，grade字段定义为列级约束，并为其定义一个约束名，其它的约束自己决定定义方式。<br>表结构如下：<br>Student（学生信息表）：<br>| 码  | 列名    | 数据类型     | 宽度 | 空否 | 取值范围       | 备  注 |<br>|—-|——-|———-|—-|—-|————|——|<br>| 主码 | sno   | char     | 9  | N  |            | 学号   |<br>|    | sname | char     | 10 | N  | UNIQUE     | 姓名   |<br>|    | ssex  | char     | 8  | Y  | 只能取‘男’或‘女’ | 性别   |<br>|    | sage  | smallint |    | Y  |            | 年龄   |<br>|    | sdept | char     | 10 | Y  |            | 系名   |</p>
+<p>Course（课程表）：</p>
+<table>
+<thead>
+<tr>
+<th>码</th>
+<th>列名</th>
+<th>数据类型</th>
+<th>宽度</th>
+<th>空否</th>
+<th>备  注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主码</td>
+<td>cno</td>
+<td>Char</td>
+<td>4</td>
+<td>N</td>
+<td>课程号</td>
+</tr>
+<tr>
+<td></td>
+<td>cname</td>
+<td>Char</td>
+<td>20</td>
+<td>N</td>
+<td>课程名称</td>
+</tr>
+<tr>
+<td>外码</td>
+<td>cpno</td>
+<td>Char</td>
+<td>4</td>
+<td>Y</td>
+<td>先行课号</td>
+</tr>
+<tr>
+<td></td>
+<td>ccredit</td>
+<td>smallint</td>
+<td></td>
+<td>Y</td>
+<td>学分</td>
+</tr>
+</tbody></table>
+<p>SC（学生选课表）：<br>| 码  | 列名    | 数据类型     | 宽度 | 空否 | 是否外码 | 参照关系    | 取值范围    | 备  注 |<br>|—-|——-|———-|—-|—-|——|———|———|——|<br>| 主码 | sno   | Char     | 9  | N  | 外码   | student |         | 学号   |<br>|    | cno   | Char     | 4  | N  | 外码   | course  |         | 课程号  |<br>|    | grade | smallint |    | Y  |      |         | 0≤x≤100 | 成绩   |</p>
+<p><img src="https://img-blog.csdnimg.cn/20200626100641667.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTcxMzk4NA==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
+<p>（3）向student表插入姓名列为“李晨”，其它列为空的学生记录，查看是否能够插入成功，若不能请分析原因。<br> <img src="https://img-blog.csdnimg.cn/20200626100659218.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTcxMzk4NA==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>不能插入的原因是在Student表中，Sno为主键，不能为空。<br>（4）向student表分别插入学号相同的两个学生记录，姓名任意（不重名），若不能插入成功，请分析原因。<br> <img src="https://img-blog.csdnimg.cn/20200626100709206.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTcxMzk4NA==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>不能插入的原因是在Student表中，Sno为主键，不能重复。违反了约束条件。<br>（5）向student表分别插入学号不同，姓名相同的两个学生信息时，查看发生的情况。<br> <img src="https://img-blog.csdnimg.cn/20200626100724266.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTcxMzk4NA==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>第一条语句插入成功，第二条语句插入失败。在Student表中，Sname限定是唯一，因此不能插入。<br>（6）向student表插入信息（“01”，“刘生”，“未知”，20，“IS”），查看是否能够插入成功，若不能请分析原因。<br> <img src="https://img-blog.csdnimg.cn/20200626100732535.jpg" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>插入失败的原因是在Student约束条件中，Ssex表级约束为‘男’或‘女’，此处为‘未知’，因此插入失败。<br>（7）使用Alter Table语句修改表student,增加对sage字段的check约束，使得列的值“不小于12”，输入学号为01，姓名为“刘生”的信息，当插入该学生的sage列分别为11，12时查看发生什么情况，并分析原因。<br> <img src="https://img-blog.csdnimg.cn/20200626100738384.jpg" srcset="/img/loading.gif" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20200626100748873.jpg" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>年龄11不满足约束条件，不能插入。<br> <img src="https://img-blog.csdnimg.cn/20200626100754145.jpg" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>年龄12可以插入。<br>（8）修改sc表中对于grade列的约束，将其改为grade在0到150之间。<br> <img src="https://img-blog.csdnimg.cn/20200626100802760.jpg" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>（9）向course表插入元组（“01”，“数据库”，“05”，3）时，查看是否能够正常插入，如不能请分析原因。<br> <img src="https://img-blog.csdnimg.cn/20200626100806851.jpg" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>由于Student中的Sno的唯一性约束，Sno = 01在表中已经出现过，因此插入失败。</p>
 
             </article>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/first/">first</a>
-                    
-                  </div>
                 
               </div>
               
@@ -228,18 +269,12 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/06/26/07%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%EF%BC%88%E6%A6%82%E5%BF%B5%E7%BB%93%E6%9E%84%E3%80%81%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84%EF%BC%89/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">07数据库设计（概念结构、逻辑结构）</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/06/15/My%20first%20blog/">
-                        <span class="hidden-mobile">My first blog</span>
+                      <a href="/2020/06/26/06%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8B%E8%A7%A6%E5%8F%91%E5%99%A8/">
+                        <span class="hidden-mobile">06数据库之触发器</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -259,8 +294,8 @@
     <script type="text/javascript">
       function loadDisqus() {
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2020/06/16/我的第一个博客/';
-          this.page.identifier = '/2020/06/16/我的第一个博客/';
+          this.page.url = 'http://yoursite.com/2020/06/26/05数据库之数据完整性/';
+          this.page.identifier = '/2020/06/26/05数据库之数据完整性/';
         };
         (function () {
           var d = document,
@@ -431,7 +466,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "我的第一个博客&nbsp;",
+        "05数据库之数据完整性&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

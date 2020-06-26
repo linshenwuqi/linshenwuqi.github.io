@@ -17,7 +17,7 @@
   <meta name="description" content="记录学习中的点滴">
   <meta name="author" content="JiaWei Sun">
   <meta name="keywords" content="">
-  <title>我的第一个博客 - 林深雾起的博客</title>
+  <title>07数据库设计（概念结构、逻辑结构） - 林深雾起的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -152,8 +152,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-06-16 08:55">
-      2020年6月16日 早上
+    <time datetime="2020-06-26 17:43">
+      2020年6月26日 下午
     </time>
   </div>
 
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      12 字
+      380 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      3
        分钟
     </span>
   
@@ -204,20 +204,17 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <p>此博客仅用来进行测试文档</p>
+              <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p><strong>某学院有基本实体集：系、教师、学生和课程。各个实体的属性集为：</strong><br>系：系编号，系名，地址<br>课程：课程号，课程名称，开课学期<br>学生：学号，学生姓名，性别，住址<br>教师：教工号，教师姓名，办公室</p>
+<p><strong>实体间的联系有：</strong><br>每个系有一位系主任，有多位教师；一个教师只能在一个系任职；每个系开设多门不同课程；一门    课程只能由一个系负责开设；每门课程只能由一个教师授课，一个教师可以讲授多门课程；一个学生可以选修多门课程；一门课程也可以由多个学生选修。</p>
+<p><strong>请根据以上需求完成如下操作：</strong><br>（1）    对以上描述进行分析，进行数据库概念模型的设计（即确定各个实体、属性及联系并绘制E-R图）。<br>绘制E-R图如下所示：<br><img src="https://img-blog.csdnimg.cn/20200626172812876.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_5pys5paH5Y6f5Yib5L2c6ICF77ya54ix5a2m5Lmg55qEY2F0ICAgIA==,size_24,color_000000,t_70#pic_center" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>（2）    将（1）中概念模型转换成关系型逻辑模型，并标出各个关系模式的主码和外码。</p>
+<p>系：（系编号，系名，地址，系主任）<br>教师：（教工号，教师姓名，办公室，系编号）<br>课程：（课程号，课程名称，开课学期，系编号，教工号）<br>学生：（学号，姓名，性别，住址，系编号）<br>选修：（学号<em>，课程号</em>）</p>
+<p><strong>注：加*的为外码，加下划线的为主码。</strong><br>（3）    将所转换成的关系型数据模型在SQL Server中进行实现。<br><img src="https://img-blog.csdnimg.cn/2020062617295266.png" srcset="/img/loading.gif" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2020062617413066.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTcxMzk4NA==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
 
             </article>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/first/">first</a>
-                    
-                  </div>
                 
               </div>
               
@@ -228,9 +225,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/06/26/07%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%EF%BC%88%E6%A6%82%E5%BF%B5%E7%BB%93%E6%9E%84%E3%80%81%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84%EF%BC%89/">
+                      <a href="/2020/06/26/06%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8B%E8%A7%A6%E5%8F%91%E5%99%A8/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">07数据库设计（概念结构、逻辑结构）</span>
+                        <span class="hidden-mobile">06数据库之触发器</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -238,8 +235,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/06/15/My%20first%20blog/">
-                        <span class="hidden-mobile">My first blog</span>
+                      <a href="/2020/06/16/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/">
+                        <span class="hidden-mobile">我的第一个博客</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -259,8 +256,8 @@
     <script type="text/javascript">
       function loadDisqus() {
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2020/06/16/我的第一个博客/';
-          this.page.identifier = '/2020/06/16/我的第一个博客/';
+          this.page.url = 'http://yoursite.com/2020/06/26/07数据库设计（概念结构、逻辑结构）/';
+          this.page.identifier = '/2020/06/26/07数据库设计（概念结构、逻辑结构）/';
         };
         (function () {
           var d = document,
@@ -431,7 +428,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "我的第一个博客&nbsp;",
+        "07数据库设计（概念结构、逻辑结构）&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
